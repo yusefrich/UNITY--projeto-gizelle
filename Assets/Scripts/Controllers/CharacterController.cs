@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour {
 	
 	[Header("Character physics reference")]
 	public float velocidade;
-	public float forcaDoPulo;
+	public float forcaDoPulo; 
 	private Rigidbody2D rb2d;
 
 	[Header("ground check reference")]
@@ -40,7 +40,6 @@ public class CharacterController : MonoBehaviour {
 
         //animaçoes do jogador
         //MoveAnimations(rb2d.velocity.x);
-
         //bloqueio do movimento do character
         if (characterStatus.characterLocker)
         {
@@ -94,6 +93,7 @@ public class CharacterController : MonoBehaviour {
 			characterStatus.goingDown = false;
 		}
 		
+
 	}
     void MoveAnimations(float moveDirection)
     {

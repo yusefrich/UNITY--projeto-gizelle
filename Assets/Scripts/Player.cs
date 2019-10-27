@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+ 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour {
 
@@ -23,13 +23,11 @@ public class Player : MonoBehaviour {
 
 
 	//switch camera pos
-	
-
 	// Use this for initialization
 	void Start ()
 	{
 		myController = GetComponent<CharacterController>();
-	}
+ 	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,6 +46,7 @@ public class Player : MonoBehaviour {
 		if(inputDeMovimento != 0){
 			MuzzleDirection(inputDeMovimento);
 		}
+
     }
     void GetGlobalInput()
     {
