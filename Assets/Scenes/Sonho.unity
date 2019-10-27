@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 461010374}
   - component: {fileID: 461010373}
   - component: {fileID: 461010378}
+  - component: {fileID: 461010379}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -523,6 +524,18 @@ MonoBehaviour:
   maxLength: {fileID: 1158063449}
   minLength: {fileID: 1671170022}
   objectsLength: {fileID: 54335164}
+--- !u!114 &461010379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461010372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd5219bdcb11cc4bbd0c80cfa13288b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &486993607
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1757a8d973b37a42a0679b44c7a4cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapModule: {fileID: 1906333816048289480, guid: c52bb95f7ebe91d4d8c4524da71a3281,
+  mapModule: {fileID: 948415391583008546, guid: 995fecf2d59e9c34e9e34dfe46c9d152,
     type: 3}
   mapLength: 5
   lastInstantiatedObject: {fileID: 0}

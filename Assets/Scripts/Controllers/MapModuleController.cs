@@ -25,11 +25,9 @@ public class MapModuleController : MonoBehaviour
 
     public Vector3 GetNextRightInstantiationPoint(){
         Vector3 point = GetRightBoundPoint();
-        return point = new Vector3 (
-            point.x + (GetBondsLenghts() / 2),
-            GetRightBoundPoint().y,
-            point.z
-        );
+        float newYDif = GetRightBoundPoint().y - transform.position.y;
+        float newY = transform.position.y + newYDif;
+        return GetRightBoundPoint();
         
     }
 }
