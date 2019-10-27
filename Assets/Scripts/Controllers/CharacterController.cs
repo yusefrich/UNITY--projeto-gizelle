@@ -116,6 +116,7 @@ public class CharacterController : MonoBehaviour {
 
     public void Jump()
 	{
+		print("jump function called");
         //bloqueio do movimento do character
         if (characterStatus.characterLocker)
         {

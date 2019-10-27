@@ -52,6 +52,7 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
+			print("botao w apertado");
             myController.Jump();
         }
 		if (Input.GetKeyDown(KeyCode.Space)){
