@@ -55,12 +55,9 @@ public class Player : MonoBehaviour {
 			print("botao w apertado");
             myController.Jump();
         }
-		if (Input.GetKeyDown(KeyCode.Space)){
-			Shot();
-		}
     }
 
-	void Shot(){
+	public void Shot(){
 		Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
 	}
 

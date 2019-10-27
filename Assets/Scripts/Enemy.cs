@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour, HitableObject
 {
     public void DetectHit()
     {
-        
+        Destroy(gameObject);
     }
 
     // Start is called before the first frame update

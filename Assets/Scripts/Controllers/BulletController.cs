@@ -12,6 +12,7 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        StartCoroutine(DestroyBulletAfterTime());
     }
 
     // Update is called once per frame
@@ -38,4 +39,11 @@ public class BulletController : MonoBehaviour
         if(other.CompareTag("Wall"))
             Destroy(gameObject);
     }
+
+    IEnumerator DestroyBulletAfterTime()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+    }
+
 }

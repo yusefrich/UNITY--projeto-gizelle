@@ -23,7 +23,7 @@ public class CharacterController : MonoBehaviour {
 	public GameObject jumpDust;//guarda um gameobject e seta falso quando no ar e true quando no chao, contem animação de poerinha
 	private AudioSource stepSound;
 	//private Animator anim;
-	
+	public Animator anime;
 
 
 	
@@ -92,26 +92,36 @@ public class CharacterController : MonoBehaviour {
 		} else {
 			characterStatus.goingDown = false;
 		}
-		
+		if(anime != null){
+
+		Animations(moveDirection);
+		}
 
 	}
-    void MoveAnimations(float moveDirection)
+    void Animations(float moveDirection)
     {
         //setando animações
-        //anim.SetFloat("CurrentVelocityX", moveDirection);
+		print(moveDirection);
+		int moveDirectionInt = (int)moveDirection;
+        anime.SetInteger("Velocidade", moveDirectionInt);
         if (moveDirection != 0)
         {
-            characterStatus.moving = true;
+            //characterStatus.moving = true;
             //anim.SetFloat("LastVelocityX", moveDirection);
         }
         else
         {
-            characterStatus.moving = false;
+            //characterStatus.moving = false;
         }
 
         //anim.SetBool("Moving", characterStatus.moving);
-        //anim.SetBool("NoChao", characterStatus.noChao);
+        anime.SetBool("NoChao", characterStatus.noChao);
         //anim.SetBool("GoingDown", characterStatus.goingDown);
+
+		if (Input.GetKeyDown(KeyCode.Space)){
+        	anime.SetTrigger("Atack");
+		}
+
     }
 
     public void Jump()
@@ -120,9 +130,11 @@ public class CharacterController : MonoBehaviour {
         //bloqueio do movimento do character
         if (characterStatus.characterLocker)
         {
+			print("return being called");
             return;
         }
 
+			print(characterStatus.noChao);
         //pulo do jogador
         if (characterStatus.noChao)
 		{
