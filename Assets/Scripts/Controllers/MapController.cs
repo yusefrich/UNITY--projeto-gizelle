@@ -7,13 +7,19 @@ public class MapController : MonoBehaviour
 
     public GameObject mapModule;
     public int mapLength;
+    public GameObject lastInstantiatedObject;
     // Start is called before the first frame update
     void Start()
     {
+        lastInstantiatedObject = Instantiate(mapModule, transform.position, transform.rotation);
+        
         //instantiate all the maps prefabs
         for (int i = 0; i < mapLength; i++)
         {
-            //var lastMapInstance
+            Vector3 newInstantiationPoint = lastInstantiatedObject.GetComponent<MapModuleController>().GetNextRightInstantiationPoint();
+            //instantiathe the new room
+            lastInstantiatedObject = Instantiate(mapModule, newInstantiationPoint, lastInstantiatedObject.transform.rotation);
+
         }
     }
 

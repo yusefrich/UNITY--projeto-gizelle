@@ -23,6 +23,7 @@ public class CharacterController : MonoBehaviour {
 	public GameObject jumpDust;//guarda um gameobject e seta falso quando no ar e true quando no chao, contem animação de poerinha
 	private AudioSource stepSound;
 	//private Animator anim;
+	
 
 
 	
@@ -50,11 +51,11 @@ public class CharacterController : MonoBehaviour {
         //movimentação do character
         characterStatus.noChao = Physics2D.OverlapCircle (checkDeChao.position, checkRadiando, layerChao);
 
-        if (rb2d.velocity.y != 0 && characterStatus.noChao)
-        {
-            // touchGround = true;
-            
-        }
+        //if (rb2d.velocity.y != 0 && characterStatus.noChao)
+        //{
+        //    // touchGround = true;
+        //    
+        //}
 
         if (touchGround)
         {

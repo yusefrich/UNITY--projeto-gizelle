@@ -9,12 +9,21 @@ public class Player : MonoBehaviour {
 
     [Header("input de personagem")]
     private float inputDeMovimento;
-
-
-
 	
 	[Header("CharacterController")]
 	private CharacterController myController;
+
+	public int points = 0;
+
+	[Header("Attack Equip items")]
+	public GameObject muzzle;
+	public GameObject bullet;
+	public GameObject muzzleRightPos;// set the muzzle position and rotation to the muzzle right pos
+	public GameObject muzzleLeftPos;// set the muzzle position and rotation to the muzzle left pos
+
+
+	//switch camera pos
+	
 
 	// Use this for initialization
 	void Start ()
@@ -26,42 +35,44 @@ public class Player : MonoBehaviour {
 	void Update () {
 		//get inputs
 		GetGlobalInput();
+		// getting camera bounds
+		
+
 	}
-
-
 	void FixedUpdate(){
 
 		//input de movimento
 		inputDeMovimento = Input.GetAxisRaw("Horizontal");
 
 		myController.Move(inputDeMovimento);
-
+		if(inputDeMovimento != 0){
+			MuzzleDirection(inputDeMovimento);
+		}
     }
-
-
     void GetGlobalInput()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
             myController.Jump();
         }
-
-/*         //input de abrir e fechar inventario
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            GameObject.FindWithTag("ItemInventory").GetComponent<ItemInventory>().ActivateItemsInventory();
-        }
-	    if (Input.GetKeyUp(KeyCode.LeftControl))
-	    {
-		    GameObject.FindWithTag("ItemInventory").GetComponent<ItemInventory>().DeactivateItemsInventory();
-	    }
-		//use Item
-	    if (Input.GetKeyDown(KeyCode.J))
-	    {
-		    GameObject.FindWithTag("ItemInventory").GetComponent<ItemInventorySelector>().UseSelectedItem();
-	    }
- */
-
+		if (Input.GetKeyDown(KeyCode.Space)){
+			Shot();
+		}
     }
+
+	void Shot(){
+		Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
+	}
+
+	void MuzzleDirection(float direction){
+		if(direction == 1f){
+			muzzle.transform.position = muzzleRightPos.transform.position;
+			muzzle.transform.rotation = muzzleRightPos.transform.rotation;
+		}else {
+			muzzle.transform.position = muzzleLeftPos.transform.position;
+			muzzle.transform.rotation = muzzleLeftPos.transform.rotation;
+
+		}
+	}
 
 }
