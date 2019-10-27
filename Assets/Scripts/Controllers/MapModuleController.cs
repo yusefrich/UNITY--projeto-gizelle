@@ -15,7 +15,7 @@ public class MapModuleController : MonoBehaviour
     {
         return rightBoundPoint.position;
     }
-    
+
     //this can be used to get the total length of the map module 
     public float GetBondsLenghts()
     {
@@ -27,7 +27,7 @@ public class MapModuleController : MonoBehaviour
         Vector3 point = GetRightBoundPoint();
         return point = new Vector3 (
             point.x + (GetBondsLenghts() / 2),
-            transform.position.y,
+            GetRightBoundPoint().y,
             point.z
         );
         

@@ -34,5 +34,8 @@ public class BulletController : MonoBehaviour
             hitted.DetectHit();
             Destroy(gameObject);
         }
+
+        if(other.CompareTag("Wall"))
+            Destroy(gameObject);
     }
 }
